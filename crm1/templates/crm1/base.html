@@ -428,7 +428,11 @@ span.psw {
   <a href="{% url 'crm1:home' %}">Home</a>
   <a href="{% url 'crm1:contact' %}">Contact</a>
         <a href="{% url 'crm1:prod' %}">Shop</a>
-        <a href="{% url 'crm1:login' %}">Login</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                {% else %}
+                    <a href="{% url 'crm1:login' %}">Login</a>
+                {% endif %}
     </ul>
 
 
